@@ -1,2 +1,1 @@
-# Charity-Management-System
-:smile:
+# Charity-Management-System :smile:
