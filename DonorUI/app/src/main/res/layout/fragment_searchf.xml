@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/searchngo"
-        android:background="@color/colorbg"
+        android:background="@color/colortxt"
         app:queryHint="Search NGO Here..."
         app:iconifiedByDefault="false"/>
 
