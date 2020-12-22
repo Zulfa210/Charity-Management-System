@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:paddingTop="40dp"
+    android:paddingLeft="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Dtab3">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <TextView
+        android:id="@+id/NameView"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:text="Name" />
+
+    <TextView
+        android:id="@+id/DNamedis"
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_height="35dp"
+        android:textSize="20dp"
+        />
+    <TextView
+        android:id="@+id/EmailView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:text="Email Address"/>
+    <TextView
+        android:id="@+id/DEmaildis"
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_height="35dp"
+        android:textSize="20dp"
+        />
+    <TextView
+        android:id="@+id/PhoneView"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="35dp"
+        android:textSize="20dp"
+        android:text="Mobile no." />
+
+    <TextView
+        android:id="@+id/DPhonedis"
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_height="35dp"
+        android:textSize="20dp"
+        />
+
+    <Button
+        android:id="@+id/DLogOut"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Logout" />
+
+
+
+</LinearLayout>
