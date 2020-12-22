@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/searchngo"
-        android:background="@color/colortxt"
+        android:background="@color/fade"
+        android:backgroundTint="@color/white"
         app:queryHint="Search NGO Here..."
         app:iconifiedByDefault="false"/>
 
