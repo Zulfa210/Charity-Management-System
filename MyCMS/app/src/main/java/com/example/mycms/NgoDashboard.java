@@ -14,14 +14,20 @@ public class NgoDashboard extends AppCompatActivity {
     private ViewPager nviewPager;
     private TabItem ntab1,ntab2,ntab3;
     public NPageAdapter npageradapter;
+<<<<<<< HEAD
     String name;
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ngo_dashboard);
 
+<<<<<<< HEAD
       //  name =getIntent().getExtras().get("Ngo_name").toString();
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
         tabLayoutn=(TabLayout) findViewById(R.id.tablayoutN);
         ntab1= (TabItem) findViewById(R.id.NTab1);
         ntab2= (TabItem) findViewById(R.id.NTab2);

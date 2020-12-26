@@ -22,7 +22,11 @@ import java.util.Map;
 
 public class DonorAppointment extends AppCompatActivity {
 
+<<<<<<< HEAD
     String Ngoname, NgoAdd;
+=======
+    String Ngoname;
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
     TextView Donorname, date, time, Donorphone;
     Button submit;
 
@@ -34,7 +38,10 @@ public class DonorAppointment extends AppCompatActivity {
 
 
         Ngoname = getIntent().getExtras().get("NgoName").toString();
+<<<<<<< HEAD
         NgoAdd = getIntent().getExtras().get("NgoAddress").toString();
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
 
         Donorname= (EditText)findViewById(R.id.ApppointName);
         Donorphone = (EditText) findViewById(R.id.AppointPhone);
@@ -83,6 +90,7 @@ public class DonorAppointment extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Appointment Added",Toast.LENGTH_LONG).show();
                     }
                 });
+<<<<<<< HEAD
 
         Map<String,Object> map2 = new HashMap<>();
 
@@ -96,5 +104,7 @@ public class DonorAppointment extends AppCompatActivity {
         FirebaseDatabase.getInstance().getReference().child(Donorname.getText().toString()).push()
                 .setValue(map2);
 
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
     }
 }

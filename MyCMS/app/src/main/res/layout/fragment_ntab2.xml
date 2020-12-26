@@ -13,6 +13,7 @@
         android:orientation="vertical">
 
 
+<<<<<<< HEAD
 <!--        <androidx.appcompat.widget.SearchView-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="wrap_content"-->
@@ -20,6 +21,15 @@
 <!--            android:background="#12000000"-->
 <!--            app:queryHint="Search NGO Here..."-->
 <!--            app:iconifiedByDefault="false"/>-->
+=======
+        <androidx.appcompat.widget.SearchView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/Nsearchngo"
+            android:background="#12000000"
+            app:queryHint="Search NGO Here..."
+            app:iconifiedByDefault="false"/>
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/NngoView"

@@ -27,9 +27,15 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class Ntab3 extends Fragment {
 
+<<<<<<< HEAD
     Button nlogOut, nAppoint;
     TextView Nname, NfullName, Nemail, Nphone, Naddress, Nregno, NupiId;
     String name;
+=======
+    Button nlogOut;
+    TextView Nname, NfullName, Nemail, Nphone, Naddress, Nregno, NupiId;
+
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
 
     public Ntab3() {
         // Required empty public constructor
@@ -48,6 +54,7 @@ public class Ntab3 extends Fragment {
         Naddress = (TextView) myview.findViewById(R.id.NAddressdis);
         Nregno = (TextView) myview.findViewById(R.id.NRefdis);
         NupiId = (TextView) myview.findViewById(R.id.Nupidis);
+<<<<<<< HEAD
         nAppoint =(Button) myview.findViewById(R.id.ngoAppoint);
 
         FirebaseUser NAuth;
@@ -96,6 +103,8 @@ public class Ntab3 extends Fragment {
                 startActivity(i2);
             }
         });
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
 //
 //        NAuth = FirebaseAuth.getInstance().getCurrentUser();
 //        NStore = FirebaseFirestore.getInstance();
@@ -148,8 +157,49 @@ public class Ntab3 extends Fragment {
     public void onStart() {
         super.onStart();
 
+<<<<<<< HEAD
 
 
+=======
+        FirebaseUser NAuth;
+        FirebaseFirestore NStore;
+        String ngoId;
+        NAuth = FirebaseAuth.getInstance().getCurrentUser();
+        NStore = FirebaseFirestore.getInstance();
+
+        ngoId = NAuth.getUid();
+        DocumentReference Ndf = NStore.collection("NGOs").document(ngoId);
+
+        Ndf.get()
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if(task.getResult().exists()) {
+
+
+                            String name = task.getResult().getString("NGO_name");
+                            String person = task.getResult().getString("FullName");
+                            String email = task.getResult().getString("EmailId");
+                            String phone = task.getResult().getString("PhoneNo");
+                            String address = task.getResult().getString("Address");
+                            String regno = task.getResult().getString("RegNo");
+                            String upi = task.getResult().getString("Upi_Id");
+
+                            Nname.setText(name);
+                            NfullName.setText(person);
+                            Nemail.setText(email);
+                            Nphone.setText(phone);
+                            Naddress.setText(address);
+                            Nregno.setText(regno);
+                            NupiId.setText(upi);
+
+                        }else {
+                            Toast.makeText(getActivity(), "No Data Found",Toast.LENGTH_LONG).show();
+                        }
+
+                    }
+                });
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
 
     }
 }

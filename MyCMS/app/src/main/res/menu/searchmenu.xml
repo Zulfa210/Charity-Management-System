@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools = "http://schemas.android.com/tools"
@@ -8,4 +9,8 @@
     android:title="Search data"
     app:showAsAction="always"
     app:actionViewClass="android.widget.SearchView" />
+=======
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
 </menu>

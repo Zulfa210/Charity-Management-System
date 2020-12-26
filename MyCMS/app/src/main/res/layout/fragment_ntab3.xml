@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+=======
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+<<<<<<< HEAD
     tools:context=".Ntab3">
 
     <!-- TODO: Update blank fragment layout -->
@@ -14,6 +19,12 @@
         android:paddingTop="30dp"
         android:paddingLeft="5dp">
 
+=======
+    android:padding="30dp"
+    tools:context=".Ntab3">
+
+    <!-- TODO: Update blank fragment layout -->
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
 
     <TextView
         android:id="@+id/NNameView"
@@ -126,6 +137,7 @@
         android:layout_marginTop="5dp"
         android:text="Logout" />
 
+<<<<<<< HEAD
         <Button
             android:id="@+id/ngoAppoint"
             android:layout_width="match_parent"
@@ -136,3 +148,6 @@
 
     </LinearLayout>
 </ScrollView>
+=======
+</LinearLayout>
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac

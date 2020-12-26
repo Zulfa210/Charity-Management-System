@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyCMS">
+<<<<<<< HEAD
         <activity android:name=".donorAppointments"></activity>
         <activity android:name=".ngoAppointments" /> <!-- <uses-library -->
         <!-- android:name="com.google.android.wearable" -->
@@ -21,6 +22,9 @@
         <!-- android:name="com.google.android.wearable.standalone" -->
         <!-- android:value="true" /> -->
         <activity android:name=".DonorAppointment" />
+=======
+        <activity android:name=".DonorAppointment"></activity>
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
         <activity android:name=".NgoForgot" />
         <activity android:name=".DonorForgot" />
         <activity android:name=".NgoDashboard" />
@@ -29,7 +33,10 @@
         <activity android:name=".DonorRegister" />
         <activity android:name=".NgoLogin" />
         <activity android:name=".DonorLogin" />
+<<<<<<< HEAD
         <activity android:name=".AddEvent" />
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,6 +44,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
+=======
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
     </application>
 
 </manifest>

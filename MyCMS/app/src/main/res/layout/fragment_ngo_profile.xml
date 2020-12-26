@@ -7,12 +7,15 @@
     android:id="@+id/profile"
     android:background="@color/white"
     tools:context=".NgoProfile">
+<<<<<<< HEAD
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
 
 
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -150,5 +153,8 @@
 
 
 </LinearLayout>
+<<<<<<< HEAD
     </ScrollView>
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
 </FrameLayout>

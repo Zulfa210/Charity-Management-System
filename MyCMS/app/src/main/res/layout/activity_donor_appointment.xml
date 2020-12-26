@@ -51,7 +51,10 @@
         android:layout_margin="40dp"
         android:hint="Date"
         android:textSize="25dp"
+<<<<<<< HEAD
         android:inputType="text"
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.325"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +67,10 @@
         android:layout_margin="40dp"
         android:hint="Time"
         android:textSize="25dp"
+<<<<<<< HEAD
         android:inputType="text"
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AppointDate" />
@@ -81,5 +87,8 @@
         app:layout_constraintStart_toStartOf="parent" />
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
 </androidx.constraintlayout.widget.ConstraintLayout>

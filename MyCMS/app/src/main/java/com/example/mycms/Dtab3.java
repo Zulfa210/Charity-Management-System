@@ -40,13 +40,20 @@ public class Dtab3 extends Fragment {
     Button dlogOut;
     TextView DfullName, Demail, Dphone;
 
+<<<<<<< HEAD
     String FullName;
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
     private FirebaseUser user;
     private DatabaseReference reference;
 
     private String userId;
 
+<<<<<<< HEAD
     private Button logout, dAppoint;
+=======
+    private Button logout;
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
 
     public Dtab3() {
         // Required empty public constructor
@@ -63,7 +70,10 @@ public class Dtab3 extends Fragment {
         userId = user.getUid();
 
 
+<<<<<<< HEAD
         dAppoint = (Button) myView.findViewById(R.id.donorAppoint);
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
         final TextView fullNameTextView = (TextView) myView.findViewById(R.id.DNamedis);
         final TextView emailTextView = (TextView) myView.findViewById(R.id.DEmaildis);
         final TextView phoneTextView = (TextView) myView.findViewById(R.id.DPhonedis);
@@ -74,7 +84,11 @@ public class Dtab3 extends Fragment {
                 DonorUser userProfile = snapshot.getValue(DonorUser.class);
 
                 if(userProfile!= null){
+<<<<<<< HEAD
                     FullName = userProfile.name;
+=======
+                    String FullName = userProfile.name;
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
                     String Email = userProfile.email;
                     String Phone = userProfile.Phone;
 
@@ -91,6 +105,7 @@ public class Dtab3 extends Fragment {
         });
 
 
+<<<<<<< HEAD
         dAppoint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,6 +116,8 @@ public class Dtab3 extends Fragment {
         });
 
 
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
                 dlogOut = (Button) myView.findViewById(R.id.DLogOut);
         dlogOut.setOnClickListener(new View.OnClickListener() {
             @Override

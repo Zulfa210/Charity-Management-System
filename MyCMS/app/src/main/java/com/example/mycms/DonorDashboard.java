@@ -1,16 +1,22 @@
 package com.example.mycms;
 
+<<<<<<< HEAD
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+<<<<<<< HEAD
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toolbar;
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
 
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
@@ -26,7 +32,10 @@ public class DonorDashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donor_dashboard);
 
+<<<<<<< HEAD
         //Toolbar toolbar = (Toolbar) findViewById(R.id.search);
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
         tabLayoutd=(TabLayout) findViewById(R.id.tablayoutD);
         dtab1= (TabItem) findViewById(R.id.DTab1);
         dtab2= (TabItem) findViewById(R.id.DTab2);
@@ -34,7 +43,10 @@ public class DonorDashboard extends AppCompatActivity {
 
         dviewPager= findViewById(R.id.Dviewpager);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
         dpageradapter = new DPageAdapter(getSupportFragmentManager(), tabLayoutd.getTabCount());
         dviewPager.setAdapter(dpageradapter);
         tabLayoutd.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -65,6 +77,7 @@ public class DonorDashboard extends AppCompatActivity {
 
         dviewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayoutd));
     }
+<<<<<<< HEAD
 
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
@@ -83,4 +96,6 @@ public class DonorDashboard extends AppCompatActivity {
 //        }
 //        return super.onOptionsItemSelected(item);
 //    }
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
 }

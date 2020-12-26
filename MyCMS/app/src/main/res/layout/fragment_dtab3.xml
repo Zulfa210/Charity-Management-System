@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+<<<<<<< HEAD:MyCMS/app/src/main/res/layout/fragment_dtab3.xml
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     tools:context=".Dtab3">
@@ -15,6 +16,18 @@
     android:paddingLeft="5dp">
 
 
+=======
+    android:orientation="vertical"
+    android:paddingTop="40dp"
+    android:paddingLeft="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Dtab3">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac:AuthApp/app/src/main/res/layout/fragment_tab3.xml
     <TextView
         android:id="@+id/NameView"
         android:layout_width="match_parent"
@@ -75,4 +88,9 @@
 
 </LinearLayout>
 
+<<<<<<< HEAD:MyCMS/app/src/main/res/layout/fragment_dtab3.xml
 </ScrollView>
+=======
+
+</LinearLayout>
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac:AuthApp/app/src/main/res/layout/fragment_tab3.xml

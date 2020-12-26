@@ -73,8 +73,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
+<<<<<<< HEAD
             android:textColor="@color/black"
             android:text="Read more"
+=======
+            android:hint="Read more"
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
             android:textSize="15dp"
             android:layout_gravity="right"
             android:id="@+id/Read_more"/>

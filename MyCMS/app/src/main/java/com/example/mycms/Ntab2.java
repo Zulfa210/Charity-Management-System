@@ -2,13 +2,17 @@ package com.example.mycms;
 
 import android.os.Bundle;
 
+<<<<<<< HEAD
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+<<<<<<< HEAD
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -43,28 +47,48 @@ public class Ntab2 extends Fragment {
 //    FirebaseFirestore nStore;
 //    NgoUser ngo;
 
+=======
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+public class Ntab2 extends Fragment {
+
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
     private View listView;
     private RecyclerView mylist;
     FirebaseAuth mauth;
     String currentId;
     private DatabaseReference ngoListRef;
     NgoViewAdapter adapter;
+<<<<<<< HEAD
+=======
+
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
     public Ntab2() {
         // Required empty public constructor
     }
 
+<<<<<<< HEAD
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
     }
 
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
+<<<<<<< HEAD
 
 
 //        appView =inflater.inflate(R.layout.fragment_ntab2, container, false);
@@ -98,6 +122,8 @@ public class Ntab2 extends Fragment {
        // ngoName = ngo.getName();
         //ngoListRef = FirebaseDatabase.getInstance().getReference().child("Appointments").orderByChild("Ngo_name").startAt();
 //        return appView;
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
         listView =inflater.inflate(R.layout.fragment_ntab2, container, false);
         mylist = (RecyclerView) listView.findViewById(R.id.NngoView);
 
@@ -110,17 +136,21 @@ public class Ntab2 extends Fragment {
 
         adapter = new NgoViewAdapter(options);
         mylist.setAdapter(adapter);
+<<<<<<< HEAD
 
         Toolbar toolbar = (Toolbar) listView.findViewById(R.id.search);
 
         setHasOptionsMenu(true);
 
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
         return listView;
     }
 
     @Override
     public void onStart() {
         super.onStart();
+<<<<<<< HEAD
 
 //        FirebaseRecyclerOptions Options = new FirebaseRecyclerOptions.Builder<Appointment>()
 //                .setQuery(ngoListRef, Appointment.class)
@@ -131,6 +161,11 @@ public class Ntab2 extends Fragment {
         adapter.startListening();
 
 
+=======
+//
+        adapter.startListening();
+
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
     }
 
     @Override
@@ -138,6 +173,7 @@ public class Ntab2 extends Fragment {
         super.onStop();
         adapter.stopListening();
     }
+<<<<<<< HEAD
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
@@ -173,4 +209,6 @@ public class Ntab2 extends Fragment {
         mylist.setAdapter(adapter);
     }
 
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
 }

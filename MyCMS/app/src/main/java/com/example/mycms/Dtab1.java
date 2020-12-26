@@ -1,6 +1,9 @@
 package com.example.mycms;
 
+<<<<<<< HEAD
 import android.content.Intent;
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+<<<<<<< HEAD
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -23,6 +27,15 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+=======
+
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
 
 
 public class Dtab1 extends Fragment {
@@ -30,6 +43,7 @@ public class Dtab1 extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 
+<<<<<<< HEAD
 
     View eventView;
     RecyclerView eventlist;
@@ -40,6 +54,13 @@ public class Dtab1 extends Fragment {
     DonorEventsAdapter deventAdapter;
     FloatingActionButton addEvent;
     String ngoName;
+=======
+    private View listView;
+    private RecyclerView mylist;
+    FirebaseAuth mauth;
+    String currentId;
+    private DatabaseReference ngoListRef;
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
 
     public Dtab1() {
         // Required empty public constructor
@@ -49,6 +70,7 @@ public class Dtab1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+<<<<<<< HEAD
         eventView =inflater.inflate(R.layout.fragment_dtab1, container, false);
         eventlist = (RecyclerView) eventView.findViewById(R.id.rv_d1);
 
@@ -86,10 +108,25 @@ public class Dtab1 extends Fragment {
     }
 
 
+=======
+        listView =inflater.inflate(R.layout.fragment_dtab1, container, false);
+        mylist = (RecyclerView) listView.findViewById(R.id.rv_d1);
+        mylist.setLayoutManager(new LinearLayoutManager(getContext()));
+
+
+        mauth = FirebaseAuth.getInstance();
+        currentId = mauth.getCurrentUser().getUid();
+        ngoListRef = FirebaseDatabase.getInstance().getReference().child("NGOs").child(currentId);
+
+        return listView;
+    }
+
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
     @Override
     public void onStart() {
         super.onStart();
 
+<<<<<<< HEAD
         deventAdapter.startListening();
 
 
@@ -102,4 +139,10 @@ public class Dtab1 extends Fragment {
     }
 
 
+=======
+
+
+
+    }
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
 }

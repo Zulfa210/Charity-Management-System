@@ -18,10 +18,13 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+<<<<<<< HEAD
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class NgoLogin extends AppCompatActivity {
@@ -31,7 +34,10 @@ public class NgoLogin extends AppCompatActivity {
     TextView NgotoRegister, NgotoForgot;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
+<<<<<<< HEAD
     String currentId,ngoName;
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
 
 
     @Override
@@ -44,7 +50,10 @@ public class NgoLogin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(NgoLogin.this, NgoRegister.class));
+<<<<<<< HEAD
 
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
             }
         });
 
@@ -99,6 +108,7 @@ public class NgoLogin extends AppCompatActivity {
         fAuth.signInWithEmailAndPassword(emailN,passwordN).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
             public void onSuccess(AuthResult authResult) {
+<<<<<<< HEAD
                 Toast.makeText(NgoLogin.this, "LoggedIn Successfully", Toast.LENGTH_LONG).show();
 
 
@@ -121,6 +131,10 @@ public class NgoLogin extends AppCompatActivity {
                // i1.putExtra("Ngo_name",ngoName);
                 startActivity(i1);
 
+=======
+                Toast.makeText(NgoLogin.this, "LoggedIn Successfully",Toast.LENGTH_LONG).show();
+                startActivity(new Intent(NgoLogin.this, NgoDashboard.class));
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -131,5 +145,12 @@ public class NgoLogin extends AppCompatActivity {
         });
 
 
+<<<<<<< HEAD
             }
         }
+=======
+    }
+
+
+    }
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac

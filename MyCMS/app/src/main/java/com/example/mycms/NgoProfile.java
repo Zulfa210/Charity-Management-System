@@ -115,7 +115,10 @@ public class NgoProfile extends Fragment {
             public void onClick(View v) {
                 Intent in = new Intent(getActivity(), DonorAppointment.class);
                 in.putExtra("NgoName", name);
+<<<<<<< HEAD
                 in.putExtra("NgoAddress",address);
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
                 startActivity(in);
             }
         });

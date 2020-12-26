@@ -1,5 +1,6 @@
 package com.example.mycms;
 
+<<<<<<< HEAD
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -7,10 +8,16 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+=======
+import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+<<<<<<< HEAD
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -27,11 +34,14 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
 
 public class Ntab1 extends Fragment {
 
 
 
+<<<<<<< HEAD
     View eventView;
     RecyclerView eventlist;
     FirebaseAuth Eauth;
@@ -41,17 +51,23 @@ public class Ntab1 extends Fragment {
     EventViewAdapter eventAdapter;
     FloatingActionButton addEvent;
     String ngoName;
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
     public Ntab1() {
         // Required empty public constructor
     }
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+<<<<<<< HEAD
 
        eventView =inflater.inflate(R.layout.fragment_ntab1, container, false);
 
@@ -108,5 +124,8 @@ public class Ntab1 extends Fragment {
     public void onStop() {
         super.onStop();
         eventAdapter.stopListening();
+=======
+        return inflater.inflate(R.layout.fragment_ntab1, container, false);
+>>>>>>> bdada2eb2555330876dcfa4b3202e3970179b0ac
     }
 }
