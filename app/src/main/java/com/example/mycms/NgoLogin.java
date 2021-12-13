@@ -1,28 +1,23 @@
 package com.example.mycms;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.regex.Pattern;
 
 public class NgoLogin extends AppCompatActivity {
 
@@ -63,11 +58,14 @@ public class NgoLogin extends AppCompatActivity {
         NloginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loginNgo();
+
+                String emailN = NeditTextEmail.getText().toString().trim();
+                String passwordN = NeditTextPassword.getText().toString().trim();
+                loginNgo(emailN, passwordN);
             }
         });
 
-        fAuth = FirebaseAuth.getInstance();
+
         fStore = FirebaseFirestore.getInstance();
 
 
@@ -75,27 +73,36 @@ public class NgoLogin extends AppCompatActivity {
 
 
 
-    private void loginNgo() {
-        String emailN = NeditTextEmail.getText().toString().trim();
-        String passwordN = NeditTextPassword.getText().toString().trim();
+    public void loginNgo(String emailN, String passwordN) {
 
+        checkNgo(emailN, passwordN);
         if (emailN.isEmpty()) {
             NeditTextEmail.setError("Email is Required");
             NeditTextEmail.requestFocus();
             return;
         }
 
-        if (!Patterns.EMAIL_ADDRESS.matcher(emailN).matches()) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}$";
+
+        Pattern pat = Pattern.compile(emailRegex);
+
+
+        if (pat.matcher(emailN).matches() == false) {
             NeditTextEmail.setError("Email is Invalid");
             NeditTextEmail.requestFocus();
             return;
         }
+
         if (passwordN.isEmpty()) {
             NeditTextPassword.setError("Password is Required");
             NeditTextPassword.requestFocus();
             return;
         }
 
+        fAuth = FirebaseAuth.getInstance();
         fAuth.signInWithEmailAndPassword(emailN,passwordN).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
             public void onSuccess(AuthResult authResult) {
@@ -132,4 +139,28 @@ public class NgoLogin extends AppCompatActivity {
 
 
             }
+
+    public boolean checkNgo(String emailN, String passwordN)
+    {
+        if (emailN.isEmpty()) {
+            return false;
+        }
+
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}$";
+
+        Pattern pat = Pattern.compile(emailRegex);
+
+
+        if (pat.matcher(emailN).matches() == false) {
+            return false;
+     }
+
+        if (passwordN.isEmpty()) {
+            return false;
+        }
+        return true;
+    }
         }

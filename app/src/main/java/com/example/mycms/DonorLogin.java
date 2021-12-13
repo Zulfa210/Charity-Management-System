@@ -1,8 +1,5 @@
 package com.example.mycms;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -12,11 +9,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.regex.Pattern;
 
 public class DonorLogin extends AppCompatActivity {
 
@@ -55,7 +57,9 @@ public class DonorLogin extends AppCompatActivity {
         DloginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loginDonor();
+                String emailD = DeditTextEmail.getText().toString().trim();
+                String passwordD = DeditTextPassword.getText().toString().trim();
+                loginDonor(emailD, passwordD);
             }
         });
 
@@ -66,10 +70,9 @@ public class DonorLogin extends AppCompatActivity {
 
 
 
-    private void loginDonor() {
-        String emailD = DeditTextEmail.getText().toString().trim();
-        String passwordD = DeditTextPassword.getText().toString().trim();
+    protected void loginDonor(String emailD, String passwordD) {
 
+        checkDonor(emailD, passwordD);
         if (emailD.isEmpty()) {
             DeditTextEmail.setError("Email is Required");
             DeditTextEmail.requestFocus();
@@ -92,6 +95,7 @@ public class DonorLogin extends AppCompatActivity {
             public void onSuccess(AuthResult authResult) {
                 Toast.makeText(DonorLogin.this, "LoggedIn Successfully",Toast.LENGTH_LONG).show();
                 startActivity(new Intent(DonorLogin.this, DonorDashboard.class));
+
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -100,6 +104,32 @@ public class DonorLogin extends AppCompatActivity {
 
             }
         });
+
+
+    }
+
+    public boolean checkDonor(String emailD, String passwordD)
+    {
+        if (emailD.isEmpty()) {
+            return false;
+        }
+
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}$";
+
+        Pattern pat = Pattern.compile(emailRegex);
+
+
+        if (pat.matcher(emailD).matches() == false) {
+            return false;
+        }
+
+        if (passwordD.isEmpty()) {
+            return false;
+        }
+    return true;
     }
 
 }

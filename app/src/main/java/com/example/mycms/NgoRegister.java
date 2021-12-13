@@ -1,8 +1,5 @@
 package com.example.mycms;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -27,6 +27,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 public class NgoRegister extends AppCompatActivity  {
 
@@ -35,7 +36,7 @@ public class NgoRegister extends AppCompatActivity  {
 
     FirebaseAuth nAuth;
     FirebaseFirestore nStore;
-    FirebaseDatabase rDatabase = FirebaseDatabase.getInstance();
+
     NgoUser member;
     String currentId;
     DatabaseReference databaseReference;
@@ -58,7 +59,16 @@ public class NgoRegister extends AppCompatActivity  {
         register_ngo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                registerNgo();
+
+                String Nemail= editTextNgoEmail.getText().toString().trim();
+                String NfullName= editTextNgoPersonName.getText().toString().trim();
+                String Nphone= editTextNgoPhone.getText().toString().trim();
+                String Npassword= editTextNgoPassword.getText().toString().trim();
+                String Nname = editTextNgoName.getText().toString().trim();
+                String Nref = editTextNgoNo.getText().toString().trim();
+                String Nupi = editTextNgoUpi.getText().toString().trim();
+                String Naddress = editTextNgoAddress.getText().toString().trim();
+                registerNgo( Nemail,  NfullName,  Nphone, Npassword, Nname, Nref, Nupi, Naddress);
             }
         });
 
@@ -78,17 +88,10 @@ public class NgoRegister extends AppCompatActivity  {
 
     }
 
+    protected void registerNgo(String Nemail, String NfullName, String Nphone,  String Npassword, String Nname, String Nref, String Nupi, String Naddress ) {
 
-    private void registerNgo() {
+        checkNgoR( Nemail,  NfullName,  Nphone, Npassword, Nname, Nref, Nupi, Naddress);
 
-        String Nemail= editTextNgoEmail.getText().toString().trim();
-        String NfullName= editTextNgoPersonName.getText().toString().trim();
-        String Nphone= editTextNgoPhone.getText().toString().trim();
-        String Npassword= editTextNgoPassword.getText().toString().trim();
-        String Nname = editTextNgoName.getText().toString().trim();
-        String Nref = editTextNgoNo.getText().toString().trim();
-        String Nupi = editTextNgoUpi.getText().toString().trim();
-        String Naddress = editTextNgoAddress.getText().toString().trim();
 
         if(Nname.isEmpty()){
             editTextNgoName.setError("NGO Name is Required");
@@ -149,6 +152,8 @@ public class NgoRegister extends AppCompatActivity  {
             return;
 
         }
+
+        FirebaseDatabase rDatabase = FirebaseDatabase.getInstance();
 
         nAuth.createUserWithEmailAndPassword(Nemail, Npassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -211,5 +216,62 @@ public class NgoRegister extends AppCompatActivity  {
                 Toast.makeText(NgoRegister.this, "Something went wrong", Toast.LENGTH_LONG).show();
             }
         });
+
+
+    }
+
+    public boolean checkNgoR(String Nemail, String NfullName, String Nphone,  String Npassword, String Nname, String Nref, String Nupi, String Naddress){
+        if(Nname.isEmpty()){
+            return false;
+        }
+
+        if(NfullName.isEmpty()){
+
+            return false;
+        }
+
+        if(Nemail.isEmpty()){
+
+            return false;
+        }
+
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}$";
+
+        Pattern pat = Pattern.compile(emailRegex);
+
+
+        if (pat.matcher(Nemail).matches() == false){
+
+            return false;
+        }
+        if(Nphone.isEmpty()){
+
+            return false;
+        }
+
+        if(Naddress.isEmpty()){
+
+            return false;
+        }
+
+        if(Nref.isEmpty()){
+
+            return false;
+        }
+
+
+        if(Npassword.isEmpty()){
+            return false;
+        }
+
+        if(Npassword.length() < 6) {
+
+            return false;
+
+        }
+        return true;
     }
 }

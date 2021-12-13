@@ -1,14 +1,14 @@
 package com.example.mycms;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -22,11 +22,14 @@ public class AddEvent extends AppCompatActivity {
     String enName;
     EditText eName, eDesc, eDate, eTime, eAddress;
     Button saveEvent;
+    FirebaseDatabase db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_event);
 
+        db = FirebaseDatabase.getInstance();
         enName = getIntent().getExtras().get("Ngo_name").toString();
         eName = (EditText)findViewById(R.id.EventName);
         eDesc = (EditText)findViewById(R.id.EventDesc);
@@ -38,7 +41,12 @@ public class AddEvent extends AppCompatActivity {
         saveEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addEvent();
+                String ename=eName.getText().toString();
+                String edesc= eDesc.getText().toString();
+                String edate= eDate.getText().toString();
+                String etime= eTime.getText().toString();
+                String eaddress= eAddress.getText().toString();
+                addEvent( ename, edesc,edate, etime, eaddress);
             }
         });
 
@@ -46,20 +54,53 @@ public class AddEvent extends AppCompatActivity {
 
     }
 
-    private void addEvent() {
+    public boolean addEvent( String ename,String edesc, String edate, String etime, String eaddress) {
 
-        FirebaseDatabase db;
+        checkEvent(ename, edesc,edate, etime, eaddress);
+
+        if(ename.isEmpty()){
+            eName.setError("Event Name is Required");
+            eName.requestFocus();
+            return false;
+        }
+
+        if(edate.isEmpty()){
+            eDate.setError("Date is Required");
+            eDate.requestFocus();
+            return false;
+        }
+
+        if(etime.isEmpty()){
+            eTime.setError("Time is Required");
+            eTime.requestFocus();
+            return false;
+        }
+
+        if(eaddress.isEmpty()){
+            eAddress.setError("Address is Required");
+            eAddress.requestFocus();
+            return false;
+        }
+
+        if(edate.length() != 10){
+            eDate.setError("Enter Date in dd-mm-yyyy format");
+            eDate.requestFocus();
+            return false;
+        }
+
+
+
 
         Map<String,Object> map1 = new HashMap<>();
 
         map1.put("NgoName", enName);
-        map1.put("EventName", eName.getText().toString());
-        map1.put("EventDescription", eDesc.getText().toString());
-        map1.put("Date", eDate.getText().toString());
-        map1.put("Time", eTime.getText().toString());
-        map1.put("Address",eAddress.getText().toString());
+        map1.put("EventName", ename);
+        map1.put("EventDescription", edesc);
+        map1.put("Date", edate);
+        map1.put("Time", etime);
+        map1.put("Address",eaddress);
 
-        FirebaseDatabase.getInstance().getReference().child("Events").push()
+        db.getReference().child("Events").push()
                 .setValue(map1)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -72,6 +113,7 @@ public class AddEvent extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Event Added",Toast.LENGTH_LONG).show();
                         startActivity(new Intent(AddEvent.this, NgoDashboard.class));
 
+
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -80,5 +122,40 @@ public class AddEvent extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Failed",Toast.LENGTH_LONG).show();
                     }
                 });
+
+        return true;
+    }
+
+    public boolean checkEvent( String ename,String edesc, String edate, String etime, String eaddress) {
+
+
+        if(ename.isEmpty()){
+
+            return false;
+        }
+
+        if(edate.isEmpty()){
+
+            return false;
+        }
+
+        if(etime.isEmpty()){
+
+            return false;
+        }
+
+        if(eaddress.isEmpty()){
+
+            return false;
+        }
+
+        if(edate.length() != 10){
+
+            return false;
+        }
+
+
+
+        return true;
     }
 }

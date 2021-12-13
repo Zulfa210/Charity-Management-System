@@ -1,8 +1,5 @@
 package com.example.mycms;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,9 +7,11 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -28,6 +27,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 public class DonorRegister extends AppCompatActivity implements View.OnClickListener {
 
@@ -37,7 +37,7 @@ public class DonorRegister extends AppCompatActivity implements View.OnClickList
     //private ProgressBar progressBar;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
-    FirebaseDatabase RDatabase = FirebaseDatabase.getInstance();
+
     DonorUser member;
     String currentDonorId;
     DatabaseReference databasereference;
@@ -76,18 +76,19 @@ public class DonorRegister extends AppCompatActivity implements View.OnClickList
                 startActivity(new Intent(this, DonorLogin.class));
                 break;
             case R.id.Dregister:
-                registerDonor();
+                String Demail= editTextDonorEmail.getText().toString().trim();
+                String DfullName= editTextDonorName.getText().toString().trim();
+                String Dphone= editTextDonorPhone.getText().toString().trim();
+                String Dpassword= editTextDonorPassword.getText().toString().trim();
+                registerDonor(Demail, DfullName , Dphone, Dpassword);
                 break;
         }
 
     }
+    protected void registerDonor(String Demail,String DfullName , String Dphone, String Dpassword) {
 
-    private void registerDonor() {
 
-        String Demail= editTextDonorEmail.getText().toString().trim();
-        String DfullName= editTextDonorName.getText().toString().trim();
-        String Dphone= editTextDonorPhone.getText().toString().trim();
-        String Dpassword= editTextDonorPassword.getText().toString().trim();
+        checkDonorR(Demail, DfullName , Dphone, Dpassword);
 
         if(DfullName.isEmpty()){
             editTextDonorName.setError("Full Name is Required");
@@ -124,6 +125,7 @@ public class DonorRegister extends AppCompatActivity implements View.OnClickList
             return;
 
         }
+        FirebaseDatabase RDatabase = FirebaseDatabase.getInstance();
             fAuth.createUserWithEmailAndPassword(Demail, Dpassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
@@ -177,6 +179,48 @@ public class DonorRegister extends AppCompatActivity implements View.OnClickList
                 }
             });
 
+
         }
 
+        public boolean checkDonorR(String Demail,String DfullName , String Dphone, String Dpassword)
+        {
+
+
+            if (DfullName.isEmpty()) {
+                return false;
+            }
+
+            if (Demail.isEmpty()) {
+
+                return false;
+            }
+
+            String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                    "[a-zA-Z0-9_+&*-]+)*@" +
+                    "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                    "A-Z]{2,7}$";
+
+            Pattern pat = Pattern.compile(emailRegex);
+
+
+            if (pat.matcher(Demail).matches() == false) {
+                return false;
+            }
+            if (Dphone.isEmpty()) {
+                return false;
+            }
+            if (Dphone.length()!= 10) {
+                return false;
+            }
+
+            if (Dpassword.isEmpty()) {
+                return false;
+            }
+
+            if (Dpassword.length() < 6) {
+                return false;
+
+            }
+            return true;
+        }
     }
